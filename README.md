@@ -18,7 +18,7 @@ El programa esta centrado en un uso desde el terminal.
 ## 🚀 Instalación
 Para descargar el programa usa el comando
 ```
-curl -JLO https://raw.githubusercontent.com/ACanoSJO/ASO-final/main/taskInstaller.sh
+wget https://raw.githubusercontent.com/ACanoSJO/ASO-final/main/taskInstaller.sh
 ```
 El juego será instalado automaticamente en el directorio ```/usr/local/bin```
 
