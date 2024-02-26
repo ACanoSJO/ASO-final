@@ -1,11 +1,11 @@
 #!/bin/bash
 #Imports
-source ./taskFunctions/register.sh
-source ./taskFunctions/login.sh
-source ./taskFunctions/taskManager.sh
+source taskFunctions/register.sh
+source taskFunctions/login.sh
+source taskFunctions/taskManager.sh
 function start()
 {
-    userDB="./DB/.userDB"
+    userDB="DB/.userDB"
     clear
     startOption=0
     #Comprueba la existencia de .userDB, en caso de que no exista la crea vacia

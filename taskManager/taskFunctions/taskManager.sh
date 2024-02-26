@@ -1,13 +1,13 @@
 #!/bin/bash
 #imports
-source ./taskFunctions/addTasks.sh
-source ./taskFunctions/checkTasks.sh
-source ./taskFunctions/deleteTasks.sh
-source ./taskFunctions/viewTasks.sh
+source taskFunctions/addTasks.sh
+source taskFunctions/checkTasks.sh
+source taskFunctions/deleteTasks.sh
+source taskFunctions/viewTasks.sh
 
 function taskManager()
 {
-    userTasksDB="./DB/.$userId-tasks"
+    userTasksDB="DB/.$userId-tasks"
     
     if [ ! -e $userTasksDB ]
     then
