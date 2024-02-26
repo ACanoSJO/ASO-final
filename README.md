@@ -15,6 +15,9 @@ Este programa enfoca su uso a multiples usuarios del mismo sistema para el manej
 
 El programa esta centrado en un uso desde el terminal.
 
+## ❗ Dependencias
+El instalador requiere los paquetes ```zip``` y ```unzip```, los cuales serán instalados al iniciar el proceso.
+
 ## 🚀 Instalación
 Para descargar el programa usa el comando
 ```
