@@ -46,6 +46,9 @@ function register () {
         echo >> "$userDB"
         echo "001:$username:$passwd1" >> "$userDB"
         echo "Registrado con exito!"
+        stty -echo
+        read -p "Pulsa enter para continuar..."
+        stty echo
     elif [ -s "$userDB" ]
     then
         lastLine=`tail -n 1 "$userDB"`

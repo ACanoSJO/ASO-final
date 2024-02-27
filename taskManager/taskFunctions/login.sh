@@ -18,22 +18,28 @@ function login() { #Declara la variable id con el identificador del usuario que 
     state="false"
     while [ "$state" == "false" ]
     do
-        read -p "Intrduce nombre de usuario: " username
+        read -p "Introduce nombre de usuario: " username
         stty -echo #Deja de mostrar lo que introduce el usuario
-        read -p "Intrduce la contrasena de usuario: " password
+        read -p "Introduce la contrasena de usuario: " password
         stty echo #Vuelve a mostrar lo que se introduce
         state="true"
-        if grep -q "$username" $userDB && grep -q "$password" $userDB
+        if grep -q "$username" "$userDB"
         then
-            #Aqui busca si los datos encontrados se encuentran en la misma linea
-            linea1=$(grep -n "$username" $userDB | cut -d: -f1) #n de linea del nombre
-            linea2=$(grep -n "$password" $userDB | cut -d: -f1) #n de linea de la contrasena
-            if [ "$linea1" == "$linea2" ]
+            # Extrae la línea correspondiente al usuario
+            userLine=$(grep "$username" "$userDB")
+            # Extrae la contraseña asociada a ese usuario
+            userPassword=$(echo "$userLine" | cut -d ':' -f 3)
+            # Compara la contraseña ingresada con la contraseña almacenada
+            if [ "$password" == "$userPassword" ]
             then
-                #Metemos dentro de la variable id la id del usuario que se ha buscado en $userDB
-                userId=$(sed -n "${linea1}s/^\([0-9]\{3\}\).*$/\1/p" "$userDB")
-                #echo $username ha iniciado sesion >> $dailyLog
-                #menu.sh $userId
+                clear
+                echo "Inicio de sesión exitoso para el usuario $username"
+                userId=$(echo "$userLine" | cut -d ':' -f 1)
+                stty -echo
+                read -p "Pulsa enter para continuar..."
+                stty echo
+                # Aquí puedes realizar acciones adicionales después del inicio de sesión exitoso
+                # menu.sh $userId
             else
                 loginError
             fi
