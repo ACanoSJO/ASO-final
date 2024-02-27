@@ -19,7 +19,7 @@ function register () {
         
         lines=`wc -l < $userDB`
         i=1
-        exist="false"  # Inicializa exist a falso, si encuentra el nombre de usuario existirá y se cambiará a true
+        exist="false"  # Inicializa exist a falso, si encuentra el nombre de usuario existira y se cambiara a true
         while [ $i -le $lines ]
         do
             user=`head -n $i $userDB | tail -n 1 | cut -d \: -f 2`
@@ -45,7 +45,7 @@ function register () {
     then
         echo >> "$userDB"
         echo "001:$username:$passwd1" >> "$userDB"
-        echo "¡Registrado con éxito!"
+        echo "Registrado con exito!"
     elif [ -s "$userDB" ]
     then
         lastLine=`tail -n 1 "$userDB"`
@@ -61,7 +61,7 @@ function register () {
         esac
         echo "$id:$username:$passwd1" >> "$userDB"
         clear
-        echo "¡Usuario registrado con éxito!"
+        echo "Usuario registrado con exito!"
         stty -echo
         read -p "Pulsa enter para continuar..."
         stty echo

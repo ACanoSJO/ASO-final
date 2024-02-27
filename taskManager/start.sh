@@ -1,8 +1,8 @@
 #!/bin/bash
 #Imports
-source taskFunctions/register.sh
-source taskFunctions/login.sh
-source taskFunctions/taskManager.sh
+. taskFunctions/register.sh
+. taskFunctions/login.sh
+. taskFunctions/taskManager.sh
 function start()
 {
     userDB="DB/.userDB"

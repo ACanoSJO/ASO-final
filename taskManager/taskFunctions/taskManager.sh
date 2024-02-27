@@ -1,9 +1,9 @@
 #!/bin/bash
 #imports
-source taskFunctions/addTasks.sh
-source taskFunctions/checkTasks.sh
-source taskFunctions/deleteTasks.sh
-source taskFunctions/viewTasks.sh
+. taskFunctions/addTasks.sh
+. taskFunctions/checkTasks.sh
+. taskFunctions/deleteTasks.sh
+. taskFunctions/viewTasks.sh
 
 function taskManager()
 {

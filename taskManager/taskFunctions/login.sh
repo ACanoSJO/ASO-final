@@ -26,8 +26,8 @@ function login() { #Declara la variable id con el identificador del usuario que 
         if grep -q "$username" $userDB && grep -q "$password" $userDB
         then
             #Aqui busca si los datos encontrados se encuentran en la misma linea
-            linea1=$(grep -n "$username" $userDB | cut -d: -f1) #nº de linea del nombre
-            linea2=$(grep -n "$password" $userDB | cut -d: -f1) #nº de linea de la contrasena
+            linea1=$(grep -n "$username" $userDB | cut -d: -f1) #n de linea del nombre
+            linea2=$(grep -n "$password" $userDB | cut -d: -f1) #n de linea de la contrasena
             if [ "$linea1" == "$linea2" ]
             then
                 #Metemos dentro de la variable id la id del usuario que se ha buscado en $userDB
