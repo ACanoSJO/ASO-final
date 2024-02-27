@@ -3,7 +3,7 @@ function deleteTasks(){
     while [ "$continue" == "Y" ]
     do
         clear
-        echo ¿Quieres continuar?
+        echo Quieres continuar?
         echo "1)Si"
         echo "2)No, volver atras"
         read -p "OPCION: " opExit
@@ -18,7 +18,7 @@ function deleteTasks(){
         line=0
         # Se mira en que linea esta la id
         totalLines=`wc -l < $userDB`
-        # esta variable se marcará como true si el usuario existe
+        # esta variable se marcara como true si el usuario existe
         checkExists="false"
         echo "Estas seguro [Y/N]"
         read -p "Opcion: " SopId
@@ -59,12 +59,12 @@ function deleteTasks(){
             ;;
         esac
         
-        read -p "¿Quieres seguir eliminando?[Y/N] " continue
+        read -p "Quieres seguir eliminando?[Y/N] " continue
         while [[ ! "$continue" == "Y" && ! "$continue" == "N" ]]
         do
             clear
-            echo "Opción no válida, vuelve a intentarlo"
-            read -p "¿Quieres seguir eliminando?[Y/N] " continue
+            echo "Opcion no valida, vuelve a intentarlo"
+            read -p "Quieres seguir eliminando?[Y/N] " continue
         done
     done
 }

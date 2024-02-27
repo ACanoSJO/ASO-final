@@ -11,7 +11,7 @@ function MarkTask(){
         line=0
         # Se mira en que linea esta la id
         totalLines=`wc -l < $userDB`
-        # esta variable se marcará como true si el usuario existe
+        # esta variable se marcara como true si el usuario existe
         checkExists="false"
         while [ "$id" != "$opId" ]
         do
@@ -37,13 +37,13 @@ function MarkTask(){
         sed -i "${line}s/$2/$1/" "$userTasksDB"
         # Pregunta para reinciar la funcion
         
-        read -p "¿Quieres seguir marcando?[Y/N] " continue
+        read -p "Quieres seguir marcando?[Y/N] " continue
         
         while [[ ! "$continue" == "Y" && ! "$continue" == "N" ]]
         do
             clear
-            echo "Opción no válida, vuelve a intentarlo"
-            read -p "¿Quieres seguir marcando?[Y/N] " continue
+            echo "Opcion no valida, vuelve a intentarlo"
+            read -p "Quieres seguir marcando?[Y/N] " continue
         done
     done
 }
@@ -52,18 +52,18 @@ function checkTasks(){
     while [ ! $opMarcar -eq 3 ]
     do
         clear
-        echo ¿Quieres marcar/desmarcar algunas tareas?
+        echo Quieres marcar/desmarcar algunas tareas?
         echo "1)Marcar"
         echo "2)Desmarcar"
         echo "3)Salir"
         read -p "OPCION: " opMarcar
         case $opMarcar in
             1)
-                # marcará el campo
+                # marcara el campo
                 MarkTask x -
             ;;
             2)
-                # desmarcará el campo
+                # desmarcara el campo
                 MarkTask - x
             ;;
         esac

@@ -45,14 +45,14 @@ function addTasks(){
         while [[ ! "$create" == "Y" && ! "$create" == "N" ]]
         do
             clear
-            echo "Opción no válida, vuelve a intentarlo"
-            read -p "¿Desea crear tarea actual? [Y/N]: " create
+            echo "Opcion no valida, vuelve a intentarlo"
+            read -p "Desea crear tarea actual? [Y/N]: " create
         done
         
         if [ "$create" = "Y" ]
         then
             echo "$id:$date:-:$description" >> $userTasksDB
-            read -p "Añadir mas tareas? [Y/N]: " continue
+            read -p "Anadir mas tareas? [Y/N]: " continue
         else
             echo "Creacion de tarea cancelada"
             read -p "Reintentar? [Y/N]: " continue

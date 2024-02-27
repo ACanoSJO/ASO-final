@@ -11,9 +11,9 @@ function register () {
         
         read -p "Crea un nombre de usuario: " username
         stty -echo
-        read -p "Introduce una contraseña: " passwd1
+        read -p "Introduce una contrasena: " passwd1
         echo
-        read -p "Introduce de nuevo la contraseña: " passwd2
+        read -p "Introduce de nuevo la contrasena: " passwd2
         stty echo
         echo
         
@@ -36,8 +36,8 @@ function register () {
             read -p "Este nombre de usuario ya existe. (Enter para continuar): "
         elif [ "$passwd1" != "$passwd2" ]
         then
-            exist="true"  # Vuelve a true si la contraseña no coincide
-            read -p "La contraseña no coincide. (Enter para continuar): "
+            exist="true"  # Vuelve a true si la contrasena no coincide
+            read -p "La contrasena no coincide. (Enter para continuar): "
         fi
     done
     

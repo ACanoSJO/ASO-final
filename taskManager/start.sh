@@ -18,7 +18,7 @@ function start()
         stty echo
         # sudo mkdir /usr/local/taskManager
         touch $userDB
-        echo id:nombre:contraseña > $userDB
+        echo id:nombre:contrasena > $userDB
     fi
     
     #Bucle que continua hasta que se elija la opcion de salida

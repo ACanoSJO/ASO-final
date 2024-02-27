@@ -2,7 +2,7 @@
 # login error
 function loginError(){
     echo
-    read -p "Usuario u Contraseña incorrectos" -t 3
+    read -p "Usuario u Contrasena incorrectos" -t 3
     clear
     state="false"
 }
@@ -20,14 +20,14 @@ function login() { #Declara la variable id con el identificador del usuario que 
     do
         read -p "Intrduce nombre de usuario: " username
         stty -echo #Deja de mostrar lo que introduce el usuario
-        read -p "Intrduce la contraseña de usuario: " password
+        read -p "Intrduce la contrasena de usuario: " password
         stty echo #Vuelve a mostrar lo que se introduce
         state="true"
         if grep -q "$username" $userDB && grep -q "$password" $userDB
         then
             #Aqui busca si los datos encontrados se encuentran en la misma linea
             linea1=$(grep -n "$username" $userDB | cut -d: -f1) #nº de linea del nombre
-            linea2=$(grep -n "$password" $userDB | cut -d: -f1) #nº de linea de la contraseña
+            linea2=$(grep -n "$password" $userDB | cut -d: -f1) #nº de linea de la contrasena
             if [ "$linea1" == "$linea2" ]
             then
                 #Metemos dentro de la variable id la id del usuario que se ha buscado en $userDB

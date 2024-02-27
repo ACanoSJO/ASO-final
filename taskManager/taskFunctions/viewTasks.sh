@@ -103,12 +103,12 @@ function viewTasks() {
         done
         
         echo ""
-        read -p "¿Desea continuar? [Y/N]: " continue
+        read -p "Desea continuar? [Y/N]: " continue
         while [[ ! "$continue" == "Y" && ! "$continue" == "N" ]]
         do
             clear
-            echo "Opción no válida, vuelve a intentarlo"
-            read -p "¿Desea continuar? [Y/N]: " continue
+            echo "Opcion no valida, vuelve a intentarlo"
+            read -p "Desea continuar? [Y/N]: " continue
         done
     done
 }
