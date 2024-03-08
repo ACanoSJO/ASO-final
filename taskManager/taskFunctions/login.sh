@@ -22,7 +22,6 @@ function login() { #Declara la variable id con el identificador del usuario que 
         stty -echo #Deja de mostrar lo que introduce el usuario
         read -p "Introduce la contrasena de usuario: " password
         stty echo #Vuelve a mostrar lo que se introduce
-        state="true"
         if grep -q "$username" "$userDB"
         then
             # Extrae la línea correspondiente al usuario
@@ -40,6 +39,7 @@ function login() { #Declara la variable id con el identificador del usuario que 
                 stty echo
                 # Aquí puedes realizar acciones adicionales después del inicio de sesión exitoso
                 # menu.sh $userId
+                state="true"
             else
                 loginError
             fi
