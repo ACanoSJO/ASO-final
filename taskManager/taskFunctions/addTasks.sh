@@ -4,6 +4,16 @@ function addTasks(){
     userTasksDB="$1"
     continue="Y"
     date=`date +%d/%m/%Y`
+    echo "go"
+    if [ ! -e $userTasksDB ]
+    then
+        echo "Creando base de datos de tareas..."
+        touch $userTasksDB
+        stty -echo
+        read -p "Pulsa enter para continuar"
+        stty echo
+    fi
+    
     
     while [ "$continue" = "Y" ]
     do
@@ -30,8 +40,8 @@ function addTasks(){
         echo "%%%%%%%%%%%%%%%%%%%%%"
         echo
         read -p "Descripcion de la tarea: " description
-        
         clear
+        
         echo Resumen:
         echo
         echo "ID: $id"
@@ -45,14 +55,14 @@ function addTasks(){
         while [[ ! "$create" == "Y" && ! "$create" == "N" ]]
         do
             clear
-            echo "Opcion no valida, vuelve a intentarlo"
-            read -p "Desea crear tarea actual? [Y/N]: " create
+            echo "Opción no válida, vuelve a intentarlo"
+            read -p "¿Desea crear tarea actual? [Y/N]: " create
         done
         
         if [ "$create" = "Y" ]
         then
             echo "$id:$date:-:$description" >> $userTasksDB
-            read -p "Anadir mas tareas? [Y/N]: " continue
+            read -p "Añadir mas tareas? [Y/N]: " continue
         else
             echo "Creacion de tarea cancelada"
             read -p "Reintentar? [Y/N]: " continue

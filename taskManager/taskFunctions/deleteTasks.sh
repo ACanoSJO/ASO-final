@@ -1,7 +1,19 @@
+#!/bin/bash
 function deleteTasks(){
+    userTasksDB=$1
     continue="Y"
     while [ "$continue" == "Y" ]
     do
+        totalLines=`wc -l < $userTasksDB`
+        if [ "$totalLines" -lt 1 ]
+        then
+            echo "No hay mas tareas a eliminar"
+            stty -echo
+            read -p "Pulsa enter para salir..."
+            stty echo
+            break
+        fi
+        
         clear
         echo Quieres continuar?
         echo "1)Si"
@@ -11,13 +23,13 @@ function deleteTasks(){
         then
             break
         fi
+        
         clear
         cat $userTasksDB
         echo
         read -p "Inserta la ID de la tarea que quieras eliminar: " opId
         line=0
-        # Se mira en que linea esta la id
-        totalLines=`wc -l < $userDB`
+        
         # esta variable se marcara como true si el usuario existe
         checkExists="false"
         echo "Estas seguro [Y/N]"
@@ -28,11 +40,10 @@ function deleteTasks(){
                 do
                     let "line=$line+1"
                     id=$(sed -n "${line}s/^\([0-9]\{3\}\).*$/\1/p" "$userTasksDB")
-                    if [ "$line" == "$totalLines" -a "$id" != "$opId" ]
+                    if [ "$line" == "$totalLines" -a "$id" != "$opId" -a "$totalLines" ]
                     then
                         clear
                         echo "La tarea no existe"
-                        # "sleep pausa el script durante 5 segundos"
                         stty -echo
                         read -p "Pulsa enter para continuar..."
                         stty echo
