@@ -46,7 +46,7 @@ function taskManager()
                 checkTasks
             ;;
             4)
-                deleteTasks
+                deleteTasks $userTasksDB
             ;;
         esac
     done

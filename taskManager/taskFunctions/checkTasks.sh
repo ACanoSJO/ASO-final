@@ -16,7 +16,8 @@ function MarkTask(){
         while [ "$id" != "$opId" ]
         do
             let "line=$line+1"
-            id=$(sed -n "${line}s/^\([0-9]\{3\}\).*$/\1/p" "$userTasksDB")
+            taskLine=$(grep "$opId" "$userTasksDB")
+            id=$(echo "$taskLine" | cut -d ':' -f 1)
             if [ "$line" == "$totalLines" -a "$id" != "$opId" ]
             then
                 echo "La tarea no existe"
